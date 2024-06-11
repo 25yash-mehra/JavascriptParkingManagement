@@ -86,3 +86,8 @@ button:hover {
 .billButton:hover {
   background-color: #c70039;
 }
+#showBill{
+  position: absolute;
+  top: 21.65rem;
+  left: 56rem;
+}
