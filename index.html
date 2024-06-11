@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Vehicle Parking System</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
       <form id="form">
-        <input type="text" placeholder="owner name" id="inputText" />
-  
+        <input type="text" placeholder="Owner Name" id="inputText" />
         <label>
-          veichal types:
+          Vehicle Types:
           <select id="veichalType">
             <option></option>
             <option>4WD</option>
@@ -21,42 +20,17 @@
             <option>2WD</option>
           </select>
         </label>
-        <!-- <label>
-          Timing :-
-          <select id="timing">
-            <option></option>
-            <option>15 min</option>
-            <option>35 min</option>
-            <option>65 min</option>
-            <option>75 min</option>
-            <option>95 min</option>
-          </select>
-        </label> -->
-        <button id="confirm">submit</button>
+        <button id="confirm">Submit</button>
       </form>
       <div class="tabelHeading">
-        <div id="count">
         <h2>No.</h2>
-      </div>
-        <div id="ownerItem">
-        <h2>OwnerName</h2>
-        </div>
-        <div id="veichalMode">
-        <h2>VeichalType</h2>
-      </div>
-      <div id="totalTiming">
-        <h2>TotalTime</h2>
-      <div id="showTime"></div>
-      </div>
-      <div id="billing">
-        <h2>TotalBill</h2>
- <div id="showBill"></div>
-      </div>
-      <div id="exit">
+        <h2>Owner Name</h2>
+        <h2>Vehicle Type</h2>
+        <h2>Total Time</h2>
+        <h2>Total Bill</h2>
         <h2>Exit</h2>
       </div>
-      </div>
- <div id="entries"></div>
+      <div id="entries"></div>
     </div>
   </body>
   <script src="./script.js"></script>

@@ -1,38 +1,39 @@
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   margin: 0;
   padding: 20px;
 }
+
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
+
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-input[type="text"] {
+
+input[type="text"], select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 label {
   display: flex;
   flex-direction: column;
   font-size: 16px;
   margin-bottom: 10px;
 }
-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+
 button {
   padding: 10px;
   border: none;
@@ -42,52 +43,64 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #0056b3;
 }
+
 .tabelHeading {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
   padding: 10px 0;
   border-bottom: 2px solid #007bff;
   margin-top: 20px;
-}
-.tabelHeading h2 {
-  flex: 1;
   text-align: center;
-  font-size: 18px;
-  color: #333;
 }
 
 .entryContainer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
   margin-top: 10px;
+  text-align: center;
 }
 
-.entryContainer h4 {
-  flex: 1;
-  /* text-align: center; */
-  font-size: 16px;
-  color: #333;
-}
-
-.billButton {
+.billButton, .delButton {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #ff5733;
   color: white;
   cursor: pointer;
+}
+
+.billButton {
+  background-color: #ff5733;
 }
 
 .billButton:hover {
   background-color: #c70039;
 }
-#showBill{
-  position: absolute;
-  top: 21.65rem;
-  left: 56rem;
+
+.delButton {
+  background-color: #ff0000;
+}
+
+.delButton:hover {
+  background-color: #cc0000;
+}
+
+@media (max-width: 768px) {
+  .tabelHeading, .entryContainer {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .tabelHeading h2, .entryContainer h4 {
+    margin: 0;
+    padding: 10px 0;
+  }
 }

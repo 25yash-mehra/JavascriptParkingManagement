@@ -15,75 +15,74 @@ document.getElementById("confirm").addEventListener("click", () => {
     alert("Please mention vehicle type");
   } else {
 
-
     const container = document.createElement("div");
     container.className = "entryContainer";
 
-//show bill;
-let endBill = document.createElement("h4")
-endBill.textContent = billButton
-document.getElementById("showBill").appendChild(endBill)
-// timing funcnality
-  let date = new Date();
-  let hours = date.getHours();
-  let minutes = date.getMinutes().toString()
-  
-  let ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12; 
-  hours = hours.toString()
-  let currentTime = `${hours}:${minutes} ${ampm}`;
-  console.log(currentTime);
+    // timing functionality
+    let date = new Date();
 
-
-// Count
-let countTag = document.createElement("h4");
-countTag.textContent = val++;
-    countTag.className = "countTag";
+    // Count
+    let countTag = document.createElement("h4");
+    countTag.textContent = val++;
     container.appendChild(countTag);
-    
+
     // Owner name
     let ownerTag = document.createElement("h4");
     ownerTag.textContent = inputText.value;
     container.appendChild(ownerTag);
     inputText.value = "";
-    
+
     // Vehicle Type
+    let vehicleType = veichalType.value; 
     let veichalTag = document.createElement("h4");
-    veichalTag.textContent = veichalType.value;
+    veichalTag.textContent = vehicleType;
     container.appendChild(veichalTag);
     veichalType.value = "";
-    
+
+    // Total Time (initially empty)
+    let totalTimeTag = document.createElement("h4");
+    container.appendChild(totalTimeTag);
+
+    // Total Bill (initially empty)
+    let totalBillTag = document.createElement("h4");
+    container.appendChild(totalBillTag);
+
     // Billing button
     let billButton = document.createElement("button");
     billButton.textContent = "Bill";
     billButton.className = "billButton";
     container.appendChild(billButton);
-    entries.appendChild(container);
-    // delet button
-    let delButton = document.createElement("button")
-    delButton.textContent = "delet"
-    delButton.className = "delButton"
-    container.appendChild(delButton)
-    entries.appendChild(container)
-//delet items
-  delButton.addEventListener("click",()=>{
-  billButton.remove()
-  veichalTag.remove()
-  ownerTag.remove()
-  countTag.remove()
-  delButton.remove()
-})
-    billButton.addEventListener( "click",()=>{
-      let exitTime = new Date()
-      let setDate = Math.floor((exitTime - date)/ 60000)
-      document.getElementById("showTime").innerHTML = `${setDate} min`
-      console.log(setDate);
-      billButton.remove()
-    })
-      
-  
 
+    // Delete button
+    let delButton = document.createElement("button");
+    delButton.textContent = "Delete";
+    delButton.className = "delButton";
+    container.appendChild(delButton);
+
+    entries.appendChild(container);
+
+    // Delete items
+    delButton.addEventListener("click", () => {
+      container.remove();
+    });
+
+    billButton.addEventListener("click", () => {
+      if (vehicleType === "4WD") { 
+        totalBillTag.textContent = "20 rupee";
+      }else if(vehicleType === "6WD"){
+        totalBillTag.textContent = "40rupee"
+      }else if(vehicleType === "8WD"){
+totalBillTag.textContent = "60 rupee"
+      }else if(vehicleType === "2WD"){
+totalBillTag.textContent = "10 rupee"
       }
-      });
-      
+
+      let exitTime = new Date();
+      let setDate = Math.floor((exitTime - date) / 60000);
+      totalTimeTag.textContent = `${setDate} minutes`;
+
+      billButton.remove();
+    });
+
+  }
+});
